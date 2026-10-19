@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Data Insights – Automatic Analytics Reports</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+</head>
+<body>
+<header class="top">
+  <div class="brand"><span class="logo">◔</span> Data Insights</div>
+  <nav id="nav" class="nav hidden"></nav>
+  <div class="actions hidden" id="actions">
+    <button id="printBtn">⬇ Save as PDF</button>
+    <button id="resetBtn" class="ghost">New file</button>
+  </div>
+</header>
+
+<main>
+  <section id="landing" class="landing">
+    <h1>Upload data. Get 10 professional reports.</h1>
+    <p>Supports CSV, TSV, TXT, Excel (.xlsx/.xls) and JSON. Everything is processed in your browser — your data is never uploaded anywhere.</p>
+    <label id="drop" class="drop">
+      <input type="file" id="file" accept=".csv,.tsv,.txt,.xlsx,.xls,.json">
+      <div class="dropicon">📂</div>
+      <strong>Drop a file here or click to browse</strong>
+      <span>CSV · TSV · XLSX · XLS · JSON</span>
+    </label>
+    <button id="sampleBtn" class="ghost">Try with sample sales data</button>
+    <div id="error" class="error hidden"></div>
+  </section>
+
+  <div id="report" class="hidden"></div>
+</main>
+<footer>All statistics are computed deterministically from your file (Pearson correlation, IQR outliers, sample standard deviation). Review the Data Quality report for any assumptions.</footer>
+<script src="js/stats.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
